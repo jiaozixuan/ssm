@@ -6,10 +6,18 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 
+import {listUser} from '@/api/user.js'
+
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  mounted(){
+    listUser().then(res =>{
+      let var1 = res.var;
+      console.log("-----------------"+var1)
+    })
   }
 }
 </script>
