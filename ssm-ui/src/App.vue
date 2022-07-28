@@ -6,7 +6,7 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 
-import {listUser} from '@/api/user.js'
+import {test} from '@/api/test.js'
 
 export default {
   name: 'App',
@@ -14,7 +14,7 @@ export default {
     HelloWorld
   },
   mounted(){
-    listUser().then(res =>{
+    test().then(res =>{
       let var1 = res.var;
       console.log("-----------------"+var1)
     })

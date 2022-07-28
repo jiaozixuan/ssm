@@ -55,3 +55,4 @@ target/
 !**/src/main/**
 !**/src/test/**
 /out
+/logs

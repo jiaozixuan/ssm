@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,8 +21,8 @@ public class TestController {
 
     @GetMapping("user")
     @ResponseBody
-    public String test() {
-        return "index";
+    public User test() {
+        return new User("tom",12);
     }
 }
 
