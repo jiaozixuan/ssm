@@ -1,12 +1,16 @@
 package com.jiaozx.controller;
 
+import com.jiaozx.utils.RedisTemplate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * @ClassName TestController
@@ -19,9 +23,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class TestController {
 
+    @Autowired
+    RedisTemplate template;
     @GetMapping("user")
     @ResponseBody
     public User test() {
+        List<Integer> integers = List.of(1, 2);
+        template.setObject("list",integers,-1L);
         return new User("tom",12);
     }
 }

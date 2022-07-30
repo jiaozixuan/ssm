@@ -35,6 +35,7 @@
         <mysql-connector-java.version>8.0.26</mysql-connector-java.version>
         <mybatis.version>3.5.5</mybatis.version>
         <mybatis-spring.version>2.0.6</mybatis-spring.version>
+        <jedis.version>4.2.3</jedis.version>
     </properties>
 
     <!--依赖管理-->
@@ -145,6 +146,12 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis-spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
