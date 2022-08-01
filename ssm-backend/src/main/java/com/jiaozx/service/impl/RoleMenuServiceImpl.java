@@ -1,6 +1,6 @@
 package com.jiaozx.service.impl;
 
-import com.jiaozx.entity.RoleMenu;
+import com.jiaozx.entity.PO.RoleMenu;
 import com.jiaozx.dao.RoleMenuDao;
 import com.jiaozx.service.RoleMenuService;
 import org.springframework.stereotype.Service;

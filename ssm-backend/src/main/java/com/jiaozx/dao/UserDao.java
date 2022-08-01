@@ -1,8 +1,9 @@
 package com.jiaozx.dao;
 
-import com.jiaozx.entity.User;
+import com.jiaozx.entity.PO.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.data.domain.Pageable;
+
 import java.util.List;
 
 /**
@@ -24,8 +25,8 @@ public interface UserDao {
     /**
      * 查询指定行数据
      *
-     * @param user 查询条件
-     * @param pageable         分页对象
+     * @param user     查询条件
+     * @param pageable 分页对象
      * @return 对象列表
      */
     List<User> queryAllByLimit(User user, @Param("pageable") Pageable pageable);
@@ -79,5 +80,16 @@ public interface UserDao {
      */
     int deleteById(Long userId);
 
+    /**
+     * 根据用户名查询
+     *
+     * @param userName:
+     * @return User
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/1 18:21
+     */
+
+    User queryByUserName(String userName);
 }
 

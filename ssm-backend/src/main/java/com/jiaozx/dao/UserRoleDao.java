@@ -1,6 +1,6 @@
 package com.jiaozx.dao;
 
-import com.jiaozx.entity.UserRole;
+import com.jiaozx.entity.PO.UserRole;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.data.domain.Pageable;
 import java.util.List;

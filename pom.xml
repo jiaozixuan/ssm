@@ -36,6 +36,7 @@
         <mybatis.version>3.5.5</mybatis.version>
         <mybatis-spring.version>2.0.6</mybatis-spring.version>
         <jedis.version>4.2.3</jedis.version>
+        <UserAgentUtils.version>1.21</UserAgentUtils.version>
     </properties>
 
     <!--依赖管理-->
@@ -153,6 +154,13 @@
                 <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${UserAgentUtils.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

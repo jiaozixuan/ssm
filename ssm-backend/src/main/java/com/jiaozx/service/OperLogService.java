@@ -1,6 +1,6 @@
 package com.jiaozx.service;
 
-import com.jiaozx.entity.OperLog;
+import com.jiaozx.entity.PO.OperLog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 

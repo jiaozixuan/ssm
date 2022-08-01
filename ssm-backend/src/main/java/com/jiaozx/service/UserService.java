@@ -1,6 +1,10 @@
 package com.jiaozx.service;
 
-import com.jiaozx.entity.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.jiaozx.entity.DTO.UserLoginDTO;
+import com.jiaozx.entity.PO.User;
+import com.jiaozx.exception.PasswordIncorrectException;
+import com.jiaozx.exception.UsernameNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -53,4 +57,15 @@ public interface UserService {
      */
     boolean deleteById(Long userId);
 
+    /**
+     *  登录
+     *
+     * @param userName:
+    	 * @param password:
+     * @return UserLoginVO
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/1 16:47
+     */
+    UserLoginDTO login(String userName, String password) throws JsonProcessingException, UsernameNotFoundException, PasswordIncorrectException;
 }

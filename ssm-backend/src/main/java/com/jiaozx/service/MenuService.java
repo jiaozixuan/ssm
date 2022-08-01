@@ -1,6 +1,6 @@
 package com.jiaozx.service;
 
-import com.jiaozx.entity.Menu;
+import com.jiaozx.entity.PO.Menu;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 

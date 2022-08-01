@@ -1,6 +1,6 @@
 package com.jiaozx.service.impl;
 
-import com.jiaozx.entity.OperLog;
+import com.jiaozx.entity.PO.OperLog;
 import com.jiaozx.dao.OperLogDao;
 import com.jiaozx.service.OperLogService;
 import org.springframework.stereotype.Service;

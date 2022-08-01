@@ -1,4 +1,4 @@
-package com.jiaozx.entity;
+package com.jiaozx.entity.PO;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
 package com.jiaozx.service;
 
-import com.jiaozx.entity.UserRole;
+import com.jiaozx.entity.PO.UserRole;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 

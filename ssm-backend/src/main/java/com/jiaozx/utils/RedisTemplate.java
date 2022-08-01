@@ -90,6 +90,9 @@ public class RedisTemplate {
                 // 如果操作成功会返回“ok”字符串，
                 returnValue = jedis.set(key, objValue);
             } else {
+                String objValue = objectMapper.writeValueAsString(object);
+                // 如果操作成功会返回“ok”字符串，
+                returnValue = jedis.set(key, objValue);
                 jedis.expire(key, expire);
             }
         } catch (JedisException | JsonProcessingException e) {

@@ -1,6 +1,6 @@
 package com.jiaozx.service.impl;
 
-import com.jiaozx.entity.Menu;
+import com.jiaozx.entity.PO.Menu;
 import com.jiaozx.dao.MenuDao;
 import com.jiaozx.service.MenuService;
 import org.springframework.stereotype.Service;
