@@ -11,6 +11,7 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.exceptions.JedisException;
 
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * @ClassName RedisTemplate
@@ -217,5 +218,11 @@ public class RedisTemplate {
         }
         return llen;
     }
+
+   /* public Set<String> keys(String token) {
+    }
+
+    public void expire(String tokenKey) {
+    }*/
 }
 

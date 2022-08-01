@@ -8,18 +8,16 @@ import {
  * 定义路由信息
  *
  */
-const routes = [
-    {
-        name: 'login',
-        path: '/login',
-        component: () => import('@/components/login/login')
-    },
-    {
-        name: 'main',
-        path: '/main',
-        component: () => import('@/components/main')
-    }
-]
+const routes = [{
+    name: 'login',
+    path: '/login',
+    component: () => import('@/components/login/login'),
+}, {
+    name: 'main',
+    alias: '/',
+    path: '/main',
+    component: () => import('@/components/main/main')
+}]
 
 // 创建路由实例并传递 `routes` 配置
 // 我们在这里使用 html5 的路由模式，url中不带有#，部署项目的时候需要注意。

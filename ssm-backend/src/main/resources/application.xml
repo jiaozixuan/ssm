@@ -62,6 +62,26 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--
+                mvc:mapping：拦截的路径
+                /**：是指所有文件夹及其子孙文件夹
+                /*：是指所有文件夹，但不包含子孙文件夹
+                /：Web项目的根目录
+            -->
+            <mvc:mapping path="/**"/>
+            <!--
+                    mvc:exclude-mapping：不拦截的路径,不拦截登录路径
+                    /toLogin：跳转到登录页面
+                    /login：登录操作
+                -->
+            <mvc:exclude-mapping path="/login"/>
+            <!--class属性就是我们自定义的拦截器-->
+            <bean id="loginInterceptor" class="com.jiaozx.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!--处理静态资源，前后分离项目不需要处理静态资源-->
 
 

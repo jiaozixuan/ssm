@@ -12,14 +12,10 @@
       <el-card class="box-card login-card">
         <span class="login-title">元动力后台管理系统</span>
         <span class="login-tip">welcome 欢迎登陆</span>
-        <el-form
-            ref="user"
-            :model="user"
-            label-width="80px"
-        >
-          <el-form-item label="用户名" prop="username">
+        <el-form ref="user" :model="user" label-width="80px" :rules="loginRules">
+          <el-form-item label="用户名" prop="userName">
             <el-input
-                v-model="user.username"
+                v-model="user.userName"
                 placeholder="请输入用户"
             ></el-input>
           </el-form-item>
@@ -32,7 +28,7 @@
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="login">登陆</el-button>
+            <el-button type="primary" @click="userlogin">登陆</el-button>
           </el-form-item>
         </el-form>
       </el-card>
@@ -41,20 +37,44 @@
 </template>
 
 <script>
+
+import {ElMessage} from 'element-plus'
+
+
 export default {
   name: 'login',
   data() {
     return {
       // 用户信息
       user: {
-        username: "admin",
-        password: "123456",
+        userName: "admin",
+        password: "xxxxxx",
+      },
+      loginRules: {
+        userName: [
+          {required: true, trigger: "blur", message: "用户名不能为空"}
+        ],
+        password: [
+          {required: true, trigger: "blur", message: "密码不能为空"}
+        ],
+        code: [
+          {required: true, trigger: "change", message: "验证码不能为空"}
+        ]
       },
     };
   },
   methods: {
-    login() {
-      this.$router.push({name: 'main'})
+    userlogin() {
+      this.$refs.user.validate((validate) => {
+        if (validate) {
+          // 登陆完成后立刻获取用户的信息
+          this.$store.dispatch("LOGIN", this.user).then((res) =>{
+            this.$router.push({name:"main"})
+          })
+        } else {
+          ElMessage("用户名或者密码格式不正确")
+        }
+      });
     }
   }
 };
