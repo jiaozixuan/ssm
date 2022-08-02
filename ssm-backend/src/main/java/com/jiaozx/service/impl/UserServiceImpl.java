@@ -133,7 +133,15 @@ public class UserServiceImpl implements UserService {
         });
         UUID uuid = UUID.randomUUID();
         UserLoginDTO userLoginDTO = UserLoginDTO.builder().token(uuid.toString()).userId(user.getUserId()).ipaddr(request.getRemoteAddr()).loginTime(new Date()).browser(userAgent.getBrowser().getName()).os(userAgent.getOperatingSystem().getName()).loginLocation(map.get("addr") + map.get("pro") + map.get("city") + map.get("region")).User(user).build();
-        redisTemplate.setObject(uuid.toString(),userLoginDTO,30*60L);
+        redisTemplate.setObject(uuid.toString(), userLoginDTO, 30 * 60L);
         return userLoginDTO;
+    }
+
+    @Override
+    public void logout() {
+        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
+        String token = request.getHeader("Authorization");
+        System.out.println(token);
+        redisTemplate.remove(token);
     }
 }

@@ -27,3 +27,10 @@ export function login(data) {
         data: data
     })
 }
+
+export function logout(data) {
+    return request({
+        url: '/logout',
+        method: 'get',
+    })
+}

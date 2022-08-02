@@ -159,7 +159,6 @@ public class RedisTemplate {
      */
     public Long remove(String... key) {
         Jedis jedis = jedisPool.getResource();
-        String returnValue = null;
         try {
             // 如果操作成功会返回“ok”字符串，
             return jedis.del(key);

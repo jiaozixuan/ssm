@@ -1,9 +1,10 @@
-package com.jiaozx.webconfig;
+package com.jiaozx.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jiaozx.entity.DTO.UserLoginDTO;
 import com.jiaozx.entity.PO.User;
 import com.jiaozx.service.UserService;
+import com.jiaozx.utils.JSONResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -43,8 +44,14 @@ public class LoginController {
             e.printStackTrace();
             return ResponseEntity.status(500).body(e.getMessage());
         }
-
         return ResponseEntity.ok().body(userLoginVO);
+    }
 
+    @GetMapping("logout")
+    public JSONResult logout(){
+
+        userService.logout();
+
+        return JSONResult.success("success");
     }
 }

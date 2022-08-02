@@ -68,4 +68,6 @@ public interface UserService {
      * @date 2022/8/1 16:47
      */
     UserLoginDTO login(String userName, String password) throws JsonProcessingException, UsernameNotFoundException, PasswordIncorrectException;
+
+    void logout();
 }
