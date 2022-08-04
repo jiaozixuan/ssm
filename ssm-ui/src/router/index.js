@@ -3,6 +3,9 @@ import {
     createRouter,
     createWebHistory
 } from 'vue-router'
+import store from '@/store'
+import storage from '@/util/storage.js'
+
 
 /**
  * 定义路由信息
@@ -30,7 +33,17 @@ const router = createRouter({
 // 全局的路由守卫
 router.beforeEach((to, from) => {
     console.log(to)
-    console.log(from)
+    if (to.name === 'login') {
+        return true;
+    }
+    if (store.getters.isLogin) {
+        if (storage.getSessionObject("loginUser")) {
+            routes.push({name: "login"})
+        }
+    } else {
+        store.dispatch("assign")
+    }
+
     return true
 })
 

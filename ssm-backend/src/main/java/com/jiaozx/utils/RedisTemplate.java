@@ -10,6 +10,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.exceptions.JedisException;
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -218,10 +219,30 @@ public class RedisTemplate {
         return llen;
     }
 
-   /* public Set<String> keys(String token) {
+    public Set<String> keys(String token) {
+        Jedis jedis = jedisPool.getResource();
+        Set<String> key = null;
+        try {
+            key = jedis.keys(token);
+        } catch (JedisException e) {
+            jedisPool.returnBrokenResource(jedis);
+            log.error("Redis execution error !", e);
+        } finally {
+            jedisPool.returnResource(jedis);
+        }
+        return key;
     }
 
-    public void expire(String tokenKey) {
-    }*/
+    public void expire(String tokenKey,Long expire) {
+        Jedis jedis = jedisPool.getResource();
+        try {
+            jedis.expire(tokenKey, expire);
+        } catch (JedisException e) {
+            jedisPool.returnBrokenResource(jedis);
+            log.error("Redis execution error !", e);
+        } finally {
+            jedisPool.returnResource(jedis);
+        }
+    }
 }
 

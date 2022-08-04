@@ -4,7 +4,11 @@ import storage from '@/util/storage.js'
 const user = {
     state: {
         username: '', nickname: '', token: ''
-    }, getters: {}, mutations: {
+    }, getters: {
+        isLogin(state){
+            return state.nickname !== '' && state.token !=='';
+        }
+    }, mutations: {
         SAVE_USERNAME(state, username) {
             state.username = username
         }, SAVE_NICKNAME(state, nickname) {
@@ -38,6 +42,14 @@ const user = {
 
                 })
             })
+        },
+        assign({commit}){
+            let sessionObject = storage.getSessionObject("loginUser");
+            if(sessionObject){
+                commit('SAVE_USERNAME', sessionObject.user.userName);
+                commit('SAVE_NICKNAME', sessionObject.user.nickName);
+                commit('SAVE_TOKEN',  sessionObject.token);
+            }
         }
     }
 }

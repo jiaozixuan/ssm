@@ -22,10 +22,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * 用户信息表(User)表服务实现类
@@ -133,7 +130,10 @@ public class UserServiceImpl implements UserService {
         });
         UUID uuid = UUID.randomUUID();
         UserLoginDTO userLoginDTO = UserLoginDTO.builder().token(uuid.toString()).userId(user.getUserId()).ipaddr(request.getRemoteAddr()).loginTime(new Date()).browser(userAgent.getBrowser().getName()).os(userAgent.getOperatingSystem().getName()).loginLocation(map.get("addr") + map.get("pro") + map.get("city") + map.get("region")).User(user).build();
-        redisTemplate.setObject(uuid.toString(), userLoginDTO, 30 * 60L);
+
+        Set<String> keys = redisTemplate.keys(userName + ":*");
+        keys.stream().forEach(key -> redisTemplate.remove(key));
+        redisTemplate.setObject(userName + ":" + uuid.toString(), userLoginDTO, 30 * 60L);
         return userLoginDTO;
     }
 
@@ -141,7 +141,7 @@ public class UserServiceImpl implements UserService {
     public void logout() {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         String token = request.getHeader("Authorization");
-        System.out.println(token);
-        redisTemplate.remove(token);
+        String username = request.getHeader("username");
+        redisTemplate.remove(username+":"+token);
     }
 }

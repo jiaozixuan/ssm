@@ -28,9 +28,11 @@ const request = axios.create({
 // 添加请求拦截器
 request.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
+
     if (store.state.user.token) {
         //'Bearer '
         config.headers['Authorization'] = store.state.user.token // 让每个请求携带自定义token 请根据实际情况自行修改
+        config.headers['username'] = store.state.user.username
     }
     return config;
 }, function (error) {

@@ -45,8 +45,9 @@
       </el-row>
     </el-aside>
     <el-container>
-      <el-header>111
-        <el-button @click='userlogout'>out</el-button>
+      <el-header>
+        <span>昵称:&nbsp;&nbsp;&nbsp;{{this.$store.state.user.nickname}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <el-button @click='userlogout'>退出登录</el-button>
       </el-header>
       <!--进行路由跳转-->
       <el-main>
