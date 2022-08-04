@@ -1,5 +1,6 @@
 package com.jiaozx.controller;
 
+import com.jiaozx.entity.DTO.PageDTO;
 import com.jiaozx.entity.PO.User;
 import com.jiaozx.service.UserService;
 import org.springframework.data.domain.Page;
@@ -28,12 +29,12 @@ public class UserController {
      * 分页查询
      *
      * @param user 筛选条件
-     * @param pageRequest      分页对象
+     * @param pageDTO      分页对象
      * @return 查询结果
      */
-    @GetMapping
-    public ResponseEntity<Page<User>> queryByPage(User user, PageRequest pageRequest) {
-        return ResponseEntity.ok(this.userService.queryByPage(user, pageRequest));
+    @GetMapping("queryByPage")
+    public ResponseEntity<Page<User>> queryByPage(User user, PageDTO pageDTO) {
+        return ResponseEntity.ok(this.userService.queryByPage(user, PageRequest.of(pageDTO.getPage(),pageDTO.getSize())));
     }
 
     /**

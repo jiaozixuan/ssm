@@ -67,6 +67,10 @@ let userlogout = function () {
     router.push({name: "login"})
   })
 }
+
+let open = function (name) {
+  router.push({name:name})
+}
 </script>
 
 <style scoped>
