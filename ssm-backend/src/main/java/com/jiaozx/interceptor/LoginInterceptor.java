@@ -34,36 +34,28 @@ public class LoginInterceptor implements HandlerInterceptor {
         // 判断有没有Authorization这个请求头，拿到首部信息的Authorization的值
         ResponseEntity<String> res = ResponseEntity.status(401).body("Bad Credentials!");
         String token = request.getHeader("Authorization");
-        String tokenKey = request.getHeader("username")+":"+token;
 
         if (token == null) {
             response.setStatus(401);
             response.getWriter().write(objectMapper.writeValueAsString(res));
             return false;
         }
-        Optional<UserLoginDTO> userLoginDTO = redisTemplate.getObject(token, new TypeReference<>() {
+        Set<String> keys = redisTemplate.keys("*" + token);
+        if (keys == null || keys.size() == 0) {
+            response.setStatus(401);
+            response.getWriter().write(objectMapper.writeValueAsString(res));
+            return false;
+        }
+        String tokenKey = (String) keys.toArray()[0];
+        Optional<UserLoginDTO> userLoginDTO = redisTemplate.getObject(tokenKey, new TypeReference<>() {
         });
         if (userLoginDTO == null) {
             response.setStatus(401);
             response.getWriter().write(objectMapper.writeValueAsString(res));
             return false;
         }
-        redisTemplate.expire(tokenKey,30 * 60L);
-
-     /*   Set<String> keys = redisTemplate.keys(token);
-        if (keys== null || keys.size() == 0){
-            response.setStatus(401);
-            response.getWriter().write(objectMapper.writeValueAsString(res));
-            return false;
-        }
-        String tokenKey = (String)keys.toArray()[0];
-        // 3、使用token去redis中查看，有没有对应的loginUser
-        Optional<UserLoginDTO> userLoginDTO = redisTemplate.getObject(tokenKey, new TypeReference<>() {
-        });
-
         // 给token续命
-        */
-
+        redisTemplate.expire(tokenKey, 30 * 60L);
         return true;
     }
 }

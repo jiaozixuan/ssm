@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * 用户信息表(User)表控制层
@@ -81,5 +83,11 @@ public class UserController {
         return ResponseEntity.ok(this.userService.deleteById(id));
     }
 
+
+    @GetMapping("getInfo")
+    public ResponseEntity<User> getInfo(Long userId){
+
+        return ResponseEntity.ok(this.userService.getInfo(userId));
+    }
 }
 

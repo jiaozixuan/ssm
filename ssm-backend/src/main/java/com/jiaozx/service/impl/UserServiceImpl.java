@@ -144,4 +144,9 @@ public class UserServiceImpl implements UserService {
         String username = request.getHeader("username");
         redisTemplate.remove(username+":"+token);
     }
+
+    @Override
+    public User getInfo(Long userId) {
+        return userDao.getInfo(userId);
+    }
 }
