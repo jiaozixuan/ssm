@@ -12,7 +12,7 @@ import storage from '@/util/storage.js'
  */
 const routes = [
     {
-        name: 'login', path: '/login', component: () => import('@/components/login/login'),
+        name: 'login',alias: '/', path: '/login', component: () => import('@/components/login/login'),
     },
     {
         name: 'main',  path: '/main', component: () => import('@/components/main/main'),

@@ -32,7 +32,7 @@ public class UserController {
      * @param pageDTO      分页对象
      * @return 查询结果
      */
-    @GetMapping("queryByPage")
+    @GetMapping
     public ResponseEntity<Page<User>> queryByPage(User user, PageDTO pageDTO) {
         return ResponseEntity.ok(this.userService.queryByPage(user, PageRequest.of(pageDTO.getPage(),pageDTO.getSize())));
     }

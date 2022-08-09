@@ -105,8 +105,8 @@
         <property name="mapperLocations" value="classpath:mapper/**/*.xml"/>
         <property name="configuration">
             <bean class="org.apache.ibatis.session.Configuration">
+                <property name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl" />
                 <property name="mapUnderscoreToCamelCase" value="true"/>
-                <property name="logPrefix" value="ydlclass_"/>
             </bean>
         </property>
     </bean>

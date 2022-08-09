@@ -34,3 +34,11 @@ export function logout(data) {
         method: 'get',
     })
 }
+
+export function listUser(data) {
+    return request({
+        url: '/user',
+        method: 'get',
+        params:data
+    })
+}

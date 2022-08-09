@@ -1,5 +1,9 @@
 package com.jiaozx.entity.PO;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +12,10 @@ import java.io.Serializable;
  * @author makejava
  * @since 2022-07-30 18:40:28
  */
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserRole implements Serializable {
     private static final long serialVersionUID = 840660354879088176L;
     /**
@@ -18,23 +26,6 @@ public class UserRole implements Serializable {
      * 角色ID
      */
     private Long roleId;
-
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
-    }
 
 }
 
