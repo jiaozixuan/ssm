@@ -31,7 +31,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        // 判断有没有Authorization这个请求头，拿到首部信息的Authorization的值
+     /*   // 判断有没有Authorization这个请求头，拿到首部信息的Authorization的值
         ResponseEntity<String> res = ResponseEntity.status(401).body("Bad Credentials!");
         String token = request.getHeader("Authorization");
 
@@ -55,7 +55,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         }
         // 给token续命
-        redisTemplate.expire(tokenKey, 30 * 60L);
+        redisTemplate.expire(tokenKey, 30 * 60L);*/
         return true;
     }
 }

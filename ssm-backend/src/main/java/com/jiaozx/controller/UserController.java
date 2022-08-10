@@ -85,9 +85,9 @@ public class UserController {
 
 
     @GetMapping("getInfo")
-    public ResponseEntity<User> getInfo(Long userId){
+    public ResponseEntity<HashMap<String,List<String>>> getInfo(){
 
-        return ResponseEntity.ok(this.userService.getInfo(userId));
+        return ResponseEntity.ok(this.userService.getInfo());
     }
 }
 

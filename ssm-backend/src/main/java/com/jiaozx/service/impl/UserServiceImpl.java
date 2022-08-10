@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.jiaozx.configuration.CustomObjectMapper;
 import com.jiaozx.entity.DTO.UserLoginDTO;
+import com.jiaozx.entity.PO.Menu;
+import com.jiaozx.entity.PO.Role;
 import com.jiaozx.entity.PO.User;
 import com.jiaozx.dao.UserDao;
 import com.jiaozx.exception.PasswordIncorrectException;
@@ -11,6 +13,7 @@ import com.jiaozx.exception.UsernameNotFoundException;
 import com.jiaozx.service.UserService;
 import com.jiaozx.utils.RedisTemplate;
 import eu.bitwalker.useragentutils.UserAgent;
+import org.slf4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
@@ -23,6 +26,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 用户信息表(User)表服务实现类
@@ -32,6 +36,7 @@ import java.util.*;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
+    
     @Resource
     private UserDao userDao;
     @Resource
@@ -142,11 +147,42 @@ public class UserServiceImpl implements UserService {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         String token = request.getHeader("Authorization");
         String username = request.getHeader("username");
-        redisTemplate.remove(username+":"+token);
+        redisTemplate.remove(username + ":" + token);
     }
 
     @Override
-    public User getInfo(Long userId) {
-        return userDao.getInfo(userId);
+    public HashMap<String,List<String>> getInfo() {
+        UserLoginDTO loginUser = getLoginUser();
+        User info = userDao.getInfo(loginUser.getUserId());
+        List<String> roles = info.getRoles().stream().map(Role::getRoleTag).collect(Collectors.toList());
+        redisTemplate.setObject("roles:" + loginUser.getToken(), roles, 30 * 60L);
+        List perms = new ArrayList<>();
+        info.getRoles().stream().map(Role::getMenus).forEach(menus -> {
+            perms.addAll(menus.stream().map(Menu::getPerms).collect(Collectors.toList()));
+        });
+        redisTemplate.setObject("perms:" + loginUser.getToken(), perms, 30 * 60L);
+
+        HashMap<String,List<String>> map = new HashMap<>();
+        map.put("roles",roles);
+        map.put("perms",perms);
+        return map;
+    }
+
+    public UserLoginDTO getLoginUser() {
+
+        //获取请求信息
+        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
+
+        String token = request.getHeader("Authorization");
+        if (null == token) {
+            throw new RuntimeException("当前用户没有登陆");
+        }
+        Set<String> keys = redisTemplate.keys("*" + token);
+        if (null == keys || 0 == keys.size()) {
+            throw new RuntimeException("当前用户信息已过期");
+        }
+        String key = (String) keys.toArray()[0];
+        return redisTemplate.getObject(key, new TypeReference<UserLoginDTO>() {
+        });
     }
 }

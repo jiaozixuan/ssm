@@ -114,41 +114,39 @@ public class RedisTemplate {
      * @param <T>
      * @return
      */
-    public <T> Optional<T> getObject(String key, Class<T> valueType) {
+    public <T> T getObject(String key, Class<T> valueType) {
 
 
         Jedis jedis = jedisPool.getResource();
-        String returnValue = null;
+        T object = null;
         try {
             // 如果操作成功会返回“ok”字符串，
-            String objectValue = jedis.get(key);
-
-            return objectValue == null ? Optional.empty() : Optional.of(objectMapper.readValue(objectValue, valueType));
+            String returnValue = jedis.get(key);
+            object = objectMapper.readValue(returnValue, valueType);
         } catch (JedisException | JsonProcessingException e) {
             jedisPool.returnBrokenResource(jedis);
             log.error("Redis execution error !", e);
         } finally {
             jedisPool.returnResource(jedis);
         }
-        return Optional.empty();
+        return object;
     }
 
-    public <T> Optional<T> getObject(String key, TypeReference<T> typeReference) {
+    public <T> T getObject(String key, TypeReference<T> typeReference) {
 
         Jedis jedis = jedisPool.getResource();
-        String returnValue = null;
+        T object = null;
         try {
             // 如果操作成功会返回“ok”字符串，
             String objectValue = jedis.get(key);
-
-            return objectValue == null ? Optional.empty() : Optional.of(objectMapper.readValue(objectValue, typeReference));
+            object = objectMapper.readValue(objectValue,typeReference);
         } catch (JedisException | JsonProcessingException e) {
             jedisPool.returnBrokenResource(jedis);
             log.error("Redis execution error !", e);
         } finally {
             jedisPool.returnResource(jedis);
         }
-        return Optional.empty();
+        return object;
     }
 
 
@@ -233,7 +231,7 @@ public class RedisTemplate {
         return key;
     }
 
-    public void expire(String tokenKey,Long expire) {
+    public void expire(String tokenKey, Long expire) {
         Jedis jedis = jedisPool.getResource();
         try {
             jedis.expire(tokenKey, expire);

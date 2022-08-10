@@ -42,3 +42,10 @@ export function listUser(data) {
         params:data
     })
 }
+
+export function getInfo(data) {
+    return request({
+        url: '/user/getInfo',
+        method: 'get',
+    })
+}

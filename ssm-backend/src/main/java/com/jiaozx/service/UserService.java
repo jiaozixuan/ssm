@@ -74,5 +74,5 @@ public interface UserService {
 
     void logout();
 
-    User getInfo(Long userId);
+    HashMap<String,List<String>> getInfo();
 }
