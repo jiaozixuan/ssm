@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
-    
+
     @Resource
     private UserDao userDao;
     @Resource
@@ -142,6 +142,15 @@ public class UserServiceImpl implements UserService {
         return userLoginDTO;
     }
 
+    /**
+     * 退出登录
+     *
+     * @param :
+     * @return void
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/10 17:34
+     */
     @Override
     public void logout() {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
@@ -150,8 +159,17 @@ public class UserServiceImpl implements UserService {
         redisTemplate.remove(username + ":" + token);
     }
 
+    /**
+     * 获取用户权限
+     *
+     * @param :
+     * @return HashMap<String, List < String>>
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/10 17:34
+     */
     @Override
-    public HashMap<String,List<String>> getInfo() {
+    public HashMap<String, List<String>> getInfo() {
         UserLoginDTO loginUser = getLoginUser();
         User info = userDao.getInfo(loginUser.getUserId());
         List<String> roles = info.getRoles().stream().map(Role::getRoleTag).collect(Collectors.toList());
@@ -162,12 +180,21 @@ public class UserServiceImpl implements UserService {
         });
         redisTemplate.setObject("perms:" + loginUser.getToken(), perms, 30 * 60L);
 
-        HashMap<String,List<String>> map = new HashMap<>();
-        map.put("roles",roles);
-        map.put("perms",perms);
+        HashMap<String, List<String>> map = new HashMap<>();
+        map.put("roles", roles);
+        map.put("perms", perms);
         return map;
     }
 
+    /**
+     * 根据登录信息获取权限
+     *
+     * @param :
+     * @return UserLoginDTO
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/10 17:35
+     */
     public UserLoginDTO getLoginUser() {
 
         //获取请求信息

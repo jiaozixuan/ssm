@@ -4,20 +4,34 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
+
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd
+
        http://www.springframework.org/schema/tx
        https://www.springframework.org/schema/tx/spring-tx.xsd
+
        http://mybatis.org/schema/mybatis-spring
        https://mybatis.org/schema/mybatis-spring.xsd
+
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd
+
        http://www.springframework.org/schema/mvc
-       https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd
+">
     <!-- 自动扫包 -->
     <context:component-scan base-package="com.jiaozx"/>
-
+    <!--aop切面-->
+    <aop:aspectj-autoproxy/>
+    
+    <!--重要！将你的SwaggerConfig配置类注入-->
+    <bean class="com.jiaozx.config.SwaggerConfig"/>
 
     <!--文件上传配置-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -106,7 +120,7 @@
         <property name="mapperLocations" value="classpath:mapper/**/*.xml"/>
         <property name="configuration">
             <bean class="org.apache.ibatis.session.Configuration">
-                <property name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl" />
+                <property name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl"/>
                 <property name="mapUnderscoreToCamelCase" value="true"/>
             </bean>
         </property>
@@ -134,8 +148,8 @@
     <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
         <constructor-arg name="host" value="127.0.0.1"/>
         <constructor-arg name="port" value="6379"/>
-        <property name="minIdle" value="20" />
-        <property name="maxIdle" value="30" />
+        <property name="minIdle" value="20"/>
+        <property name="maxIdle" value="30"/>
         <property name="maxTotal" value="200"/>
     </bean>
 

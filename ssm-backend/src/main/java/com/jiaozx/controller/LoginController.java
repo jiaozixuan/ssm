@@ -28,6 +28,16 @@ public class LoginController {
     @Resource
     private UserService userService;
 
+    /**
+     * 用户登录
+     *
+     * @param user:
+     * @param bindingResult:
+     * @return ResponseEntity
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/10 17:33
+     */
     @PostMapping("login")
     public ResponseEntity login(@RequestBody @Validated User user, BindingResult bindingResult) {
 
@@ -47,8 +57,17 @@ public class LoginController {
         return ResponseEntity.ok().body(userLoginVO);
     }
 
+    /**
+     * 退出登录
+     *
+     * @param :
+     * @return JSONResult
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/10 17:33
+     */
     @GetMapping("logout")
-    public JSONResult logout(){
+    public JSONResult logout() {
 
         userService.logout();
 

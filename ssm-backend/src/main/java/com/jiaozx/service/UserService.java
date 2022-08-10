@@ -30,8 +30,8 @@ public interface UserService {
     /**
      * 分页查询
      *
-     * @param user 筛选条件
-     * @param pageRequest      分页对象
+     * @param user        筛选条件
+     * @param pageRequest 分页对象
      * @return 查询结果
      */
     Page<User> queryByPage(User user, PageRequest pageRequest);
@@ -61,10 +61,10 @@ public interface UserService {
     boolean deleteById(Long userId);
 
     /**
-     *  登录
+     * 用户登录
      *
      * @param userName:
-    	 * @param password:
+     * @param password:
      * @return UserLoginVO
      * @author @jiaozx
      * @description TODO
@@ -72,7 +72,25 @@ public interface UserService {
      */
     UserLoginDTO login(String userName, String password) throws JsonProcessingException, UsernameNotFoundException, PasswordIncorrectException;
 
+    /**
+     * 退出登录
+     *
+     * @param :
+     * @return void
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/10 17:34
+     */
     void logout();
 
-    HashMap<String,List<String>> getInfo();
+    /**
+     * 查询用户权限
+     *
+     * @param :
+     * @return null
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/10 17:32
+     */
+    HashMap<String, List<String>> getInfo();
 }

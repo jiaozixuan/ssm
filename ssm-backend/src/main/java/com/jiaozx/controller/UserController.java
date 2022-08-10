@@ -1,6 +1,9 @@
 package com.jiaozx.controller;
 
+import com.jiaozx.annotation.HasPremission;
+import com.jiaozx.annotation.HasRole;
 import com.jiaozx.entity.DTO.PageDTO;
+import com.jiaozx.entity.DTO.UserLoginDTO;
 import com.jiaozx.entity.PO.User;
 import com.jiaozx.service.UserService;
 import org.springframework.data.domain.Page;
@@ -20,7 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("user")
-public class UserController {
+public class UserController extends BaseController {
     /**
      * 服务对象
      */
@@ -30,13 +33,13 @@ public class UserController {
     /**
      * 分页查询
      *
-     * @param user 筛选条件
-     * @param pageDTO      分页对象
+     * @param user    筛选条件
+     * @param pageDTO 分页对象
      * @return 查询结果
      */
     @GetMapping
     public ResponseEntity<Page<User>> queryByPage(User user, PageDTO pageDTO) {
-        return ResponseEntity.ok(this.userService.queryByPage(user, PageRequest.of(pageDTO.getPage(),pageDTO.getSize())));
+        return ResponseEntity.ok(this.userService.queryByPage(user, PageRequest.of(pageDTO.getPage(), pageDTO.getSize())));
     }
 
     /**
@@ -46,7 +49,9 @@ public class UserController {
      * @return 单条数据
      */
     @GetMapping("{id}")
+    @HasPremission("system:user")
     public ResponseEntity<User> queryById(@PathVariable("id") Long id) {
+        UserLoginDTO loginUser = getLoginUser();
         return ResponseEntity.ok(this.userService.queryById(id));
     }
 
@@ -57,6 +62,7 @@ public class UserController {
      * @return 新增结果
      */
     @PostMapping
+    @HasRole("admin")
     public ResponseEntity<User> add(User user) {
         return ResponseEntity.ok(this.userService.insert(user));
     }
@@ -84,8 +90,17 @@ public class UserController {
     }
 
 
+    /**
+     * 查询用户权限并且把权限放到redis中
+     *
+     * @param :
+     * @return null
+     * @author @jiaozx
+     * @description TODO
+     * @date 2022/8/10 17:32
+     */
     @GetMapping("getInfo")
-    public ResponseEntity<HashMap<String,List<String>>> getInfo(){
+    public ResponseEntity<HashMap<String, List<String>>> getInfo() {
 
         return ResponseEntity.ok(this.userService.getInfo());
     }

@@ -56,3 +56,4 @@ target/
 !**/src/test/**
 /out
 /logs
+/ssm-backend/src/test
