@@ -7,7 +7,7 @@ package com.jiaozx.exception;
  * @Date 2022/8/1 18:30
  * @Version 1.0
  */
-public class UsernameNotFoundException extends Exception  {
+public class UsernameNotFoundException extends RuntimeException  {
 
     private static final long serialVersionUID = -6171051906557000400L;
     public UsernameNotFoundException() {

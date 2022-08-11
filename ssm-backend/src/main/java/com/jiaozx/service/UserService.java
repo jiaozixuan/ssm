@@ -70,7 +70,7 @@ public interface UserService {
      * @description TODO
      * @date 2022/8/1 16:47
      */
-    UserLoginDTO login(String userName, String password) throws JsonProcessingException, UsernameNotFoundException, PasswordIncorrectException;
+    UserLoginDTO login(String userName, String password) throws JsonProcessingException;
 
     /**
      * 退出登录

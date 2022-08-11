@@ -37,7 +37,6 @@ public class BaseController {
 
         //获取请求信息
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-
         String token = request.getHeader("Authorization");
         if (null == token) {
             throw new RuntimeException("当前用户没有登陆");

@@ -7,9 +7,9 @@ package com.jiaozx.exception;
  * @Date 2022/8/1 18:31
  * @Version 1.0
  */
-public class PasswordIncorrectException extends Exception  {
+public class PasswordIncorrectException extends RuntimeException  {
 
-    private static final long serialVersionUID = -4997208847022642762L;
+    private static final long serialVersionUID = -7307517309884555188L;
 
     public PasswordIncorrectException(){
 

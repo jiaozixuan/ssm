@@ -118,7 +118,7 @@ public class UserServiceImpl implements UserService {
      * @date 2022/8/1 16:47
      */
     @Override
-    public UserLoginDTO login(String userName, String password) throws UsernameNotFoundException, PasswordIncorrectException, JsonProcessingException {
+    public UserLoginDTO login(String userName, String password) throws JsonProcessingException {
 
         User user = userDao.queryByUserName(userName);
         if (null == user) throw new UsernameNotFoundException(userName + "--该用户不存在");
@@ -174,7 +174,7 @@ public class UserServiceImpl implements UserService {
         User info = userDao.getInfo(loginUser.getUserId());
         List<String> roles = info.getRoles().stream().map(Role::getRoleTag).collect(Collectors.toList());
         redisTemplate.setObject("roles:" + loginUser.getToken(), roles, 30 * 60L);
-        List perms = new ArrayList<>();
+        List<String> perms = new ArrayList<>();
         info.getRoles().stream().map(Role::getMenus).forEach(menus -> {
             perms.addAll(menus.stream().map(Menu::getPerms).collect(Collectors.toList()));
         });

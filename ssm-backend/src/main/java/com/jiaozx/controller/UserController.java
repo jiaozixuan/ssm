@@ -1,6 +1,6 @@
 package com.jiaozx.controller;
 
-import com.jiaozx.annotation.HasPremission;
+import com.jiaozx.annotation.HasPermission;
 import com.jiaozx.annotation.HasRole;
 import com.jiaozx.entity.DTO.PageDTO;
 import com.jiaozx.entity.DTO.UserLoginDTO;
@@ -49,7 +49,8 @@ public class UserController extends BaseController {
      * @return 单条数据
      */
     @GetMapping("{id}")
-    @HasPremission("system:user")
+    @HasPermission("system:user")
+    @HasRole("")
     public ResponseEntity<User> queryById(@PathVariable("id") Long id) {
         UserLoginDTO loginUser = getLoginUser();
         return ResponseEntity.ok(this.userService.queryById(id));
