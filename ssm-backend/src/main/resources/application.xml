@@ -31,7 +31,7 @@
     <aop:aspectj-autoproxy/>
     
     <!--重要！将你的SwaggerConfig配置类注入-->
-<!--    <bean class="com.jiaozx.config.SwaggerConfig"/>-->
+<!--    <bean class="com.jiaozx.configuration.SwaggerConfig"/>-->
 
     <!--文件上传配置-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

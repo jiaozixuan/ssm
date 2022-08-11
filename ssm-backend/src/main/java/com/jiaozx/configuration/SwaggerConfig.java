@@ -1,4 +1,4 @@
-package com.jiaozx.config;
+package com.jiaozx.configuration;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
