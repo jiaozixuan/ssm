@@ -7,6 +7,7 @@ import com.jiaozx.exception.HasNotPermissionException;
 import com.jiaozx.exception.HasNotRoleException;
 import com.jiaozx.utils.RedisTemplate;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -27,8 +28,8 @@ import java.util.Objects;
  */
 
 @Component
-@org.aspectj.lang.annotation.Aspect
-public class Aspect {
+@Aspect
+public class Aspects {
 
     @Resource
     private RedisTemplate redisTemplate;

@@ -38,7 +38,7 @@
         <jedis.version>4.2.3</jedis.version>
         <UserAgentUtils.version>1.21</UserAgentUtils.version>
         <xiaoymin.version>3.0.3</xiaoymin.version>
-        <swagger-ui.version>2.9.2</swagger-ui.version>
+        <swagger-ui.version>3.0.0</swagger-ui.version>
         <swagger2.version>3.0.0</swagger2.version>
         <junit.version>4.13.1</junit.version>
         <spring-test.version>5.2.5.RELEASE</spring-test.version>
