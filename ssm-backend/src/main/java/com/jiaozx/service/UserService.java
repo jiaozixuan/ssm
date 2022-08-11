@@ -8,6 +8,7 @@ import com.jiaozx.exception.UsernameNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -70,7 +71,7 @@ public interface UserService {
      * @description TODO
      * @date 2022/8/1 16:47
      */
-    UserLoginDTO login(String userName, String password) throws JsonProcessingException;
+    UserLoginDTO login(String userName, String password) throws IOException;
 
     /**
      * 退出登录

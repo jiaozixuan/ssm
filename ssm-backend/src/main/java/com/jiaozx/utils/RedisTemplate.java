@@ -10,6 +10,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.exceptions.JedisException;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -123,7 +124,7 @@ public class RedisTemplate {
             // 如果操作成功会返回“ok”字符串，
             String returnValue = jedis.get(key);
             object = objectMapper.readValue(returnValue, valueType);
-        } catch (JedisException | JsonProcessingException e) {
+        } catch (IOException e) {
             jedisPool.returnBrokenResource(jedis);
             log.error("Redis execution error !", e);
         } finally {
@@ -139,8 +140,8 @@ public class RedisTemplate {
         try {
             // 如果操作成功会返回“ok”字符串，
             String objectValue = jedis.get(key);
-            object = objectMapper.readValue(objectValue,typeReference);
-        } catch (JedisException | JsonProcessingException e) {
+            object = objectMapper.readValue(objectValue, typeReference);
+        } catch (IOException e) {
             jedisPool.returnBrokenResource(jedis);
             log.error("Redis execution error !", e);
         } finally {

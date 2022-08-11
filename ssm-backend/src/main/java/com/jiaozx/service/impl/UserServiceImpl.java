@@ -25,6 +25,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -118,7 +119,7 @@ public class UserServiceImpl implements UserService {
      * @date 2022/8/1 16:47
      */
     @Override
-    public UserLoginDTO login(String userName, String password) throws JsonProcessingException {
+    public UserLoginDTO login(String userName, String password) throws IOException {
 
         User user = userDao.queryByUserName(userName);
         if (null == user) throw new UsernameNotFoundException(userName + "--该用户不存在");
