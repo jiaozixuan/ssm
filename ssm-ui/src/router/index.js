@@ -47,6 +47,7 @@ router.beforeEach((to, from) => {
         }
     } else {
         store.dispatch("assign")
+        store.dispatch("GETINFO")
     }
 
     return true

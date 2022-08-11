@@ -39,7 +39,6 @@
 <script>
 
 import {ElMessage} from 'element-plus'
-import {getInfo} from "@/api/user";
 
 export default {
   name: 'login',
@@ -68,14 +67,13 @@ export default {
       this.$refs.user.validate((validate) => {
         if (validate) {
           // 登陆完成后立刻获取用户的信息
-          this.$store.dispatch("LOGIN", this.user).then((res) =>{
-            // console.log(res)
-            // getInfo()
-            if(res.status ===200){
-              getInfo();
+          this.$store.dispatch("LOGIN", this.user).then((res) => {
+            if (res.status === 200) {
+              this.$store.dispatch("GETINFO").then(() => {
+                this.$router.push({name: "main"})
+                ElMessage("登录成功")
+              })
             }
-            this.$router.push({name:"main"})
-            ElMessage("登录成功")
           })
         } else {
           ElMessage("用户名或者密码格式不正确")
