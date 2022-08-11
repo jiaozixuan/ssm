@@ -25,7 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("user")
-@Api(value = "user", tags = "用户")
+@Api(value = "用户的操作类", tags = "用户")
 public class UserController extends BaseController {
     /**
      * 服务对象
@@ -103,7 +103,9 @@ public class UserController extends BaseController {
      * @description TODO
      * @date 2022/8/10 17:32
      */
-    @GetMapping("getInfo")
+    @RequestMapping(value = "getInfo",method = RequestMethod.GET,produces="application/json; charset=UTF-8")
+    @ApiOperation(value = "查询用户权限",notes = "test")
+//    @ApiImplicitParam(paramType = "path",name = "id",value = "用户主键",required = true,dataType = "int")
     public ResponseEntity<HashMap<String, List<String>>> getInfo() {
 
         return ResponseEntity.ok(this.userService.getInfo());
