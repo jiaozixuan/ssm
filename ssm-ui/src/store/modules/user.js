@@ -27,14 +27,13 @@ const user = {
             state.perms = perms
         }
     }, actions: {
-        GETINFO() {
-            return new Promise(function (resolve) {
+        GETINFO({commit}) {
+            return new Promise(resolve => {
                 getInfo().then(res => {
-                    console.log(res)
-                    commit('SAVE_ROLES', res.data.roles);
-                    commit('SAVE_PERMS', res.data.perms);
-                    storage.saveSessionObject("loginUser", res.data);
-                    storage.saveSessionObject("loginUser", res.data);
+                    console.log(res.data)
+                    console.log("--------")
+                    commit("SAVE_ROLES", res.data.roles);
+                    commit("SAVE_PERMS", res.data.perms);
                     resolve();
                 })
             })

@@ -141,7 +141,7 @@ public class RedisTemplate {
             // 如果操作成功会返回“ok”字符串，
             String objectValue = jedis.get(key);
             object = objectMapper.readValue(objectValue, typeReference);
-        } catch (IOException e) {
+        } catch (Exception e) {
             jedisPool.returnBrokenResource(jedis);
             log.error("Redis execution error !", e);
         } finally {

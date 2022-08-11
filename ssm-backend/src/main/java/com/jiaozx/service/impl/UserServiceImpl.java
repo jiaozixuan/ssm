@@ -138,7 +138,12 @@ public class UserServiceImpl implements UserService {
         UserLoginDTO userLoginDTO = UserLoginDTO.builder().token(uuid.toString()).userId(user.getUserId()).ipaddr(request.getRemoteAddr()).loginTime(new Date()).browser(userAgent.getBrowser().getName()).os(userAgent.getOperatingSystem().getName()).loginLocation(map.get("addr") + map.get("pro") + map.get("city") + map.get("region")).User(user).build();
 
         Set<String> keys = redisTemplate.keys(userName + ":*");
-        keys.stream().forEach(key -> redisTemplate.remove(key));
+        keys.stream().forEach(key -> {
+            String[] split = key.split(userName + ":");
+            redisTemplate.remove("roles" + split[1]);
+            redisTemplate.remove("perms" + split[1]);
+            redisTemplate.remove(key);
+        });
         redisTemplate.setObject(userName + ":" + uuid.toString(), userLoginDTO, 30 * 60L);
         return userLoginDTO;
     }
@@ -158,6 +163,8 @@ public class UserServiceImpl implements UserService {
         String token = request.getHeader("Authorization");
         String username = request.getHeader("username");
         redisTemplate.remove(username + ":" + token);
+        redisTemplate.remove("perms" + ":" + token);
+        redisTemplate.remove("roles" + ":" + token);
     }
 
     /**
@@ -209,8 +216,14 @@ public class UserServiceImpl implements UserService {
         if (null == keys || 0 == keys.size()) {
             throw new RuntimeException("当前用户信息已过期");
         }
+        Iterator<String> iter = keys.iterator();
+        while (iter.hasNext()) {
+            if (iter.next().contains("roles") || iter.next().contains("perms")) {
+                iter.remove();
+            }
+        }
         String key = (String) keys.toArray()[0];
-        return redisTemplate.getObject(key, new TypeReference<UserLoginDTO>() {
+        return redisTemplate.getObject(key, new TypeReference<>() {
         });
     }
 }

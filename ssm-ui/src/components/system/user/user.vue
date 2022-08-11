@@ -13,6 +13,15 @@
       <el-button type="primary" @click="onSubmit">查询</el-button>
     </el-form-item>
   </el-form>
+  <div class="flex">
+    <el-button type="primary" :icon="Edit" />
+    <el-button type="primary" :icon="Share" />
+    <el-button type="primary" :icon="Delete" />
+    <el-button type="primary" :icon="Search">Search</el-button>
+    <el-button type="primary">
+      Upload<el-icon class="el-icon--right"><Upload /></el-icon>
+    </el-button>
+  </div>
   <el-table ref="tableRef" row-key="date" :data="tableData" style="width: 100%">
     <el-table-column prop="userName" label="用户名"/>
     <el-table-column prop="nickName" label="昵称"/>
@@ -33,7 +42,7 @@ import {ref} from 'vue'
 import {ElTable} from 'element-plus'
 import {onMounted} from "vue";
 import {listUser} from "@/api/user";
-
+import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
 
 const queryParam = ref({
   page: 0,
