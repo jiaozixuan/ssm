@@ -139,7 +139,7 @@ public class UserServiceImpl implements UserService {
 
         Set<String> keys = redisTemplate.keys(userName + ":*");
         keys.stream().forEach(key -> {
-            String[] split = key.split(userName + ":");
+            String[] split = key.split(userName);
             redisTemplate.remove("roles" + split[1]);
             redisTemplate.remove("perms" + split[1]);
             redisTemplate.remove(key);
@@ -218,7 +218,8 @@ public class UserServiceImpl implements UserService {
         }
         Iterator<String> iter = keys.iterator();
         while (iter.hasNext()) {
-            if (iter.next().contains("roles") || iter.next().contains("perms")) {
+            String str = iter.next();
+            if (str.contains("roles") || str.contains("perms")) {
                 iter.remove();
             }
         }
