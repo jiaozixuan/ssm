@@ -29,10 +29,11 @@
     <context:component-scan base-package="com.jiaozx"/>
     <!--aop切面-->
     <aop:aspectj-autoproxy/>
-    
-    <!--重要！将你的SwaggerConfig配置类注入-->
-<!--    <bean class="com.jiaozx.configuration.SwaggerConfig"/>-->
 
+    <!--重要！将你的SwaggerConfig配置类注入-->
+    <bean class="com.jiaozx.configuration.SwaggerConfig"/>
+    <mvc:default-servlet-handler />
+    <mvc:resources mapping="/swagger/**" location="/swagger/"/>
     <!--文件上传配置-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 -->
@@ -92,6 +93,7 @@
                 -->
             <mvc:exclude-mapping path="/login"/>
             <mvc:exclude-mapping path="/logout"/>
+            <mvc:exclude-mapping path="/swagger"/>
             <!--class属性就是我们自定义的拦截器-->
             <bean id="loginInterceptor" class="com.jiaozx.interceptor.LoginInterceptor"/>
         </mvc:interceptor>

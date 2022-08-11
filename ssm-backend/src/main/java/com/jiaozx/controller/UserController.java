@@ -6,6 +6,8 @@ import com.jiaozx.entity.DTO.PageDTO;
 import com.jiaozx.entity.DTO.UserLoginDTO;
 import com.jiaozx.entity.PO.User;
 import com.jiaozx.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("user")
+@Api(value = "user", tags = "用户")
 public class UserController extends BaseController {
     /**
      * 服务对象
