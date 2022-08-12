@@ -29,7 +29,7 @@ import java.util.Objects;
 
 @Component
 @Aspect
-public class Aspects {
+public class PermissionAspect {
 
     @Resource
     private RedisTemplate redisTemplate;

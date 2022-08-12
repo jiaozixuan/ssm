@@ -37,7 +37,6 @@ const router = createRouter({
 
 // 全局的路由守卫
 router.beforeEach((to, from) => {
-    console.log(to)
     if (to.name === 'login') {
         return true;
     }

@@ -5,6 +5,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:task="http://www.springframework.org/schema/task"
        xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans
@@ -22,17 +23,22 @@
        http://www.springframework.org/schema/aop
        https://www.springframework.org/schema/aop/spring-aop.xsd
 
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd
+
        http://www.springframework.org/schema/mvc
        https://www.springframework.org/schema/mvc/spring-mvc.xsd
 ">
     <!-- 自动扫包 -->
     <context:component-scan base-package="com.jiaozx"/>
     <!--aop切面-->
-    <aop:aspectj-autoproxy/>
-
+    <aop:aspectj-autoproxy />
+    <task:annotation-driven executor="myTaskAsyncPool"/>
+<!--    <task:executor id="logexecutor"/>-->
+    <bean class="com.jiaozx.configuration.ThreadPoolConfiguration" />
     <!--重要！将你的SwaggerConfig配置类注入-->
-    <bean class="com.jiaozx.configuration.SwaggerConfig"/>
-    <mvc:default-servlet-handler />
+    <bean class="com.jiaozx.configuration.SwaggerConfiguration"/>
+    <mvc:default-servlet-handler/>
     <mvc:resources mapping="/swagger/**" location="/swagger/"/>
     <!--文件上传配置-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

@@ -30,8 +30,6 @@ const user = {
         GETINFO({commit}) {
             return new Promise(resolve => {
                 getInfo().then(res => {
-                    console.log(res.data)
-                    console.log("--------")
                     commit("SAVE_ROLES", res.data.roles);
                     commit("SAVE_PERMS", res.data.perms);
                     resolve();

@@ -27,7 +27,7 @@
                 <span>系统管理</span>
               </template>
 
-              <el-menu-item index="1-1" @click="open('user')">
+              <el-menu-item index="1-1" @click="open('user')" v-hasPermission="['system']">
                 用户管理
               </el-menu-item
               >

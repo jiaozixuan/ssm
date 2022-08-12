@@ -10,6 +10,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Iterator;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -31,7 +32,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-     /*   // 判断有没有Authorization这个请求头，拿到首部信息的Authorization的值
+        // 判断有没有Authorization这个请求头，拿到首部信息的Authorization的值
         ResponseEntity<String> res = ResponseEntity.status(401).body("Bad Credentials!");
         String token = request.getHeader("Authorization");
 
@@ -46,8 +47,15 @@ public class LoginInterceptor implements HandlerInterceptor {
             response.getWriter().write(objectMapper.writeValueAsString(res));
             return false;
         }
+        Iterator<String> iter = keys.iterator();
+        while (iter.hasNext()) {
+            String str = iter.next();
+            if (str.contains("roles") || str.contains("perms")) {
+                iter.remove();
+            }
+        }
         String tokenKey = (String) keys.toArray()[0];
-        Optional<UserLoginDTO> userLoginDTO = redisTemplate.getObject(tokenKey, new TypeReference<>() {
+        UserLoginDTO userLoginDTO = redisTemplate.getObject(tokenKey, new TypeReference<>() {
         });
         if (userLoginDTO == null) {
             response.setStatus(401);
@@ -55,7 +63,10 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         }
         // 给token续命
-        redisTemplate.expire(tokenKey, 30 * 60L);*/
+        keys.forEach(k ->{
+            redisTemplate.expire(k, 30 * 60L);
+        });
+
         return true;
     }
 }

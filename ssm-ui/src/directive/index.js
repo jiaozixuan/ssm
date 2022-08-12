@@ -5,12 +5,9 @@ export default {
     hasPermission: {
         mounted(el, binding) {
             const { value } = binding
-            console.log(value)
-            // const all_permission = "*:*:*";
             const perms = store.getters && store.getters.perms
             if (value && value instanceof Array && value.length > 0) {
                 const hasPermissions = perms.some(perms => {
-                    // return all_permission === perms || value.includes(perms)
                     return  value.includes(perms)
                 })
                 if (!hasPermissions) {
@@ -25,12 +22,8 @@ export default {
     hasRole: {
         mounted(el, binding) {
             const { value } = binding
-
-            // const all_permission = "admin";
             const roles = store.getters && store.getters.roles
             if (value && value instanceof Array && value.length > 0) {
-                console.log(value)
-                console.log("p--"+roles)
                 const hasRoles = roles.some(role => {
                     return value.includes(role)
                 })

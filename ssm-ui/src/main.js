@@ -7,12 +7,11 @@ import 'element-plus/dist/index.css'
 import '@/assets/style/common.css'
 import keys from '@/directive'
 
-const app = createApp(App)
+let app = createApp(App)
 app.use(router).use(store).use(ElementPlus);
 
-let key
-for (key in keys) {
-    console.log("-------" + key)
+for (let key in keys) {
+    app.directive(key,keys[key]);
 }
 
 

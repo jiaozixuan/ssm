@@ -14,7 +14,7 @@
     </el-form-item>
   </el-form>
   <div class="flex">
-    <el-button type="primary" :icon="Edit" />
+    <el-button type="primary" :icon="Edit" v-hasRole="['admin']"  />
     <el-button type="primary" :icon="Share" />
     <el-button type="primary" :icon="Delete" />
     <el-button type="primary" :icon="Search">Search</el-button>
@@ -38,10 +38,9 @@
 
 <script setup>
 
-import {ref} from 'vue'
+import {ref,onMounted} from 'vue'
 import {ElTable} from 'element-plus'
-import {onMounted} from "vue";
-import {listUser} from "@/api/user";
+import {listUser} from '@/api/user';
 import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
 
 const queryParam = ref({

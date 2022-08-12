@@ -1,5 +1,9 @@
 package com.jiaozx.entity.PO;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -9,6 +13,10 @@ import java.io.Serializable;
  * @author makejava
  * @since 2022-07-30 18:40:27
  */
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class OperLog implements Serializable {
     private static final long serialVersionUID = -46951753264295408L;
     /**
@@ -56,94 +64,6 @@ public class OperLog implements Serializable {
      */
     private Date opertime;
 
-
-    public Integer getOperId() {
-        return operId;
-    }
-
-    public void setOperId(Integer operId) {
-        this.operId = operId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getBusinessType() {
-        return businessType;
-    }
-
-    public void setBusinessType(String businessType) {
-        this.businessType = businessType;
-    }
-
-    public String getMethod() {
-        return method;
-    }
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
-
-    public String getRequestMethod() {
-        return requestMethod;
-    }
-
-    public void setRequestMethod(String requestMethod) {
-        this.requestMethod = requestMethod;
-    }
-
-    public String getOperName() {
-        return operName;
-    }
-
-    public void setOperName(String operName) {
-        this.operName = operName;
-    }
-
-    public String getOperUrl() {
-        return operUrl;
-    }
-
-    public void setOperUrl(String operUrl) {
-        this.operUrl = operUrl;
-    }
-
-    public String getOperIp() {
-        return operIp;
-    }
-
-    public void setOperIp(String operIp) {
-        this.operIp = operIp;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getErrormsg() {
-        return errormsg;
-    }
-
-    public void setErrormsg(String errormsg) {
-        this.errormsg = errormsg;
-    }
-
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
 
 }
 

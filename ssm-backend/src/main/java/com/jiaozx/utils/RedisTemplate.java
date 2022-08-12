@@ -192,7 +192,6 @@ public class RedisTemplate {
         try {
             // 如果操作成功会返回“ok”字符串，
             String value = jedis.rpop(key);
-            System.out.println("---------" + value);
             returnValue = value == null ? Optional.empty() : Optional.of(value);
         } catch (JedisException e) {
             jedisPool.returnBrokenResource(jedis);
