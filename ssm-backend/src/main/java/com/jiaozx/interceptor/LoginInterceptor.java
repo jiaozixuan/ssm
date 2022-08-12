@@ -2,6 +2,7 @@ package com.jiaozx.interceptor;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.jiaozx.configuration.CustomObjectMapper;
+import com.jiaozx.constant.ConstantClassField;
 import com.jiaozx.entity.DTO.UserLoginDTO;
 import com.jiaozx.utils.RedisTemplate;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         // 判断有没有Authorization这个请求头，拿到首部信息的Authorization的值
         ResponseEntity<String> res = ResponseEntity.status(401).body("Bad Credentials!");
-        String token = request.getHeader("Authorization");
+        String token = request.getHeader(ConstantClassField.HEAD_AUTHORIZATION);
 
         if (token == null) {
             response.setStatus(401);

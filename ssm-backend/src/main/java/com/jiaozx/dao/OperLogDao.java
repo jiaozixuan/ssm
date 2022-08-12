@@ -44,7 +44,7 @@ public interface OperLogDao {
      * @param operLog 实例对象
      * @return 影响行数
      */
-    int insert(OperLog operLog);
+     void insert(OperLog operLog);
 
     /**
      * 批量新增数据（MyBatis原生foreach方法）

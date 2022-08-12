@@ -3,6 +3,7 @@ package com.jiaozx.service.impl;
 import com.jiaozx.entity.PO.OperLog;
 import com.jiaozx.dao.OperLogDao;
 import com.jiaozx.service.OperLogService;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -52,9 +53,9 @@ public class OperLogServiceImpl implements OperLogService {
      * @return 实例对象
      */
     @Override
-    public OperLog insert(OperLog operLog) {
+    @Async("myTaskAsyncPool")
+    public void insert(OperLog operLog) {
         this.operLogDao.insert(operLog);
-        return operLog;
     }
 
     /**

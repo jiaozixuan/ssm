@@ -3,6 +3,7 @@ package com.jiaozx.service.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.jiaozx.configuration.CustomObjectMapper;
+import com.jiaozx.constant.ConstantClassField;
 import com.jiaozx.entity.DTO.UserLoginDTO;
 import com.jiaozx.entity.PO.Menu;
 import com.jiaozx.entity.PO.Role;
@@ -160,7 +161,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void logout() {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-        String token = request.getHeader("Authorization");
+        String token = request.getHeader(ConstantClassField.HEAD_AUTHORIZATION);
         String username = request.getHeader("username");
         redisTemplate.remove(username + ":" + token);
         redisTemplate.remove("perms" + ":" + token);
@@ -208,7 +209,7 @@ public class UserServiceImpl implements UserService {
         //获取请求信息
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
 
-        String token = request.getHeader("Authorization");
+        String token = request.getHeader(ConstantClassField.HEAD_AUTHORIZATION);
         if (null == token) {
             throw new RuntimeException("当前用户没有登陆");
         }

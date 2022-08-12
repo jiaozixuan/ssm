@@ -1,42 +1,26 @@
-package com.jiaozx.controller;
+package com.jiaozx.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.jiaozx.constant.ConstantClassField;
 import com.jiaozx.entity.DTO.UserLoginDTO;
-import com.jiaozx.utils.RedisTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
 /**
- * @ClassName BaseController
+ * @ClassName AuthorUtil
  * @Description TODO
  * @Author @jiaozx
- * @Date 2022/8/10 17:36
+ * @Date 2022/8/13 3:14
  * @Version 1.0
  */
+public class AuthorUtil {
 
-public class BaseController {
-
-    @Resource
-    private RedisTemplate redisTemplate;
-
-    /**
-     * 根据登录用户查询权限
-     *
-     * @param :
-     * @return UserLoginDTO
-     * @author @jiaozx
-     * @description TODO
-     * @date 2022/8/10 17:36
-     */
-    protected UserLoginDTO getLoginUser() {
-
+    public static UserLoginDTO getAuthor(RedisTemplate redisTemplate) {
         //获取请求信息
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         String token = request.getHeader(ConstantClassField.HEAD_AUTHORIZATION);

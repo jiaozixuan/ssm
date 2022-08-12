@@ -3,6 +3,7 @@ package com.jiaozx.aspect;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.jiaozx.annotation.HasPermission;
 import com.jiaozx.annotation.HasRole;
+import com.jiaozx.constant.ConstantClassField;
 import com.jiaozx.exception.HasNotPermissionException;
 import com.jiaozx.exception.HasNotRoleException;
 import com.jiaozx.utils.RedisTemplate;
@@ -49,7 +50,7 @@ public class PermissionAspect {
         String[] value = hasRole.value();
         //获取请求信息
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-        String token = request.getHeader("Authorization");
+        String token = request.getHeader(ConstantClassField.HEAD_AUTHORIZATION);
         List<String> rolesList = redisTemplate.getObject("roles:" + token, new TypeReference<>() {
         });
         boolean flag = false;
@@ -62,7 +63,7 @@ public class PermissionAspect {
         String[] value = hasPermission.value();
         //获取请求信息
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-        String token = request.getHeader("Authorization");
+        String token = request.getHeader(ConstantClassField.HEAD_AUTHORIZATION);
         List<String> permsList = redisTemplate.getObject("perms:" + token, new TypeReference<>() {
         });
         boolean flag = false;

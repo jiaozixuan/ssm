@@ -4,6 +4,9 @@ import com.jiaozx.annotation.CustomLog;
 import com.jiaozx.configuration.ThreadPoolConfiguration;
 import com.jiaozx.entity.PO.OperLog;
 import com.jiaozx.service.OperLogService;
+import com.jiaozx.utils.AuthorUtil;
+import com.jiaozx.utils.RedisTemplate;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -33,41 +36,35 @@ import java.util.concurrent.Executor;
 
 @Component
 @Aspect
-public class CustomlogAspect implements BeanFactoryAware {
+@Slf4j
+public class CustomlogAspect {
 
     @Resource
     private OperLogService operLogService;
 
     @Resource
-    private BeanFactory beanFactory;
+    private RedisTemplate redisTemplate;
 
-    @Override
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        this.beanFactory = beanFactory;
-    }
 
     @AfterReturning("@annotation(customLog)")
     public void afterRunning(JoinPoint joinPoint, CustomLog customLog) {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-        CustomlogAspect bean = beanFactory.getBean(this.getClass());
         OperLog operLog = createOperLog(request, joinPoint, customLog, null);
-        bean.logHandler(operLog);
+        operLogService.insert(operLog);
+        log.info("{} ,执行了【{}】 操作", operLog.getOperName(), operLog.getTitle());
     }
 
     @AfterThrowing(value = "@annotation(customLog)", throwing = "exception")
     public void afterThrowing(JoinPoint joinPoint, CustomLog customLog, Exception exception) {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-        CustomlogAspect bean = beanFactory.getBean(this.getClass());
         OperLog operLog = createOperLog(request, joinPoint, customLog, exception);
-        bean.logHandler(operLog);
-    }
-    
-    @Async("myTaskAsyncPool")
-    public void logHandler(OperLog operLog) {
         operLogService.insert(operLog);
+        log.error("{} ,执行了【{}】 操作", operLog.getOperName(), operLog.getTitle(), exception);
     }
 
+
     private OperLog createOperLog(HttpServletRequest request, JoinPoint joinPoint, CustomLog customLog, Exception exception) {
+
         OperLog operLog = new OperLog();
         operLog.setTitle(customLog.title());
         operLog.setBusinessType(customLog.type());
@@ -81,7 +78,7 @@ public class CustomlogAspect implements BeanFactoryAware {
         operLog.setOperUrl(request.getRequestURI());
         operLog.setOpertime(new Date());
         operLog.setMethod(joinPoint.getSignature().getName());
-        operLog.setOperName("");
+        operLog.setOperName(AuthorUtil.getAuthor(redisTemplate).getUser().getUserName());
         return operLog;
     }
 

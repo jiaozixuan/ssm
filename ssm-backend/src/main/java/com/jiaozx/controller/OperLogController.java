@@ -27,8 +27,8 @@ public class OperLogController {
     /**
      * 分页查询
      *
-     * @param operLog 筛选条件
-     * @param pageRequest      分页对象
+     * @param operLog     筛选条件
+     * @param pageRequest 分页对象
      * @return 查询结果
      */
     @GetMapping
@@ -54,8 +54,9 @@ public class OperLogController {
      * @return 新增结果
      */
     @PostMapping
-    public ResponseEntity<OperLog> add(OperLog operLog) {
-        return ResponseEntity.ok(this.operLogService.insert(operLog));
+    public ResponseEntity add(OperLog operLog) {
+        this.operLogService.insert(operLog);
+        return ResponseEntity.ok().build();
     }
 
     /**

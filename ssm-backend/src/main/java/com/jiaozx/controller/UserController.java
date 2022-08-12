@@ -46,7 +46,6 @@ public class UserController extends BaseController {
      */
     @GetMapping
     @CustomLog(type = "用户",title = "分页查询")
-//    @Async("myTaskAsyncPool")
     public ResponseEntity<Page<User>> queryByPage(User user, PageDTO pageDTO) {
         return ResponseEntity.ok(this.userService.queryByPage(user, PageRequest.of(pageDTO.getPage(), pageDTO.getSize())));
     }
