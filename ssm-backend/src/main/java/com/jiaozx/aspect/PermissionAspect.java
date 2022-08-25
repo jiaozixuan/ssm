@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @ClassName PermissionAspect
+ * @ClassName 权限注解
  * @Description TODO
  * @Author @jiaozx
  * @Date 2022/8/10 17:46

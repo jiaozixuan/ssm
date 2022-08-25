@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * @ClassName RepeatInterceptor
+ * @ClassName 重复提交拦截器
  * @Description TODO
  * @Author @jiaozx
  * @Date 2022/8/13 3:43
