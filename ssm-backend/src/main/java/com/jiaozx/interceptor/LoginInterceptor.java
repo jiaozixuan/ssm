@@ -38,6 +38,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         String token = request.getHeader(ConstantClassField.HEAD_AUTHORIZATION);
 
         if (token == null) {
+            System.out.println("拦截了");
             response.setStatus(401);
             response.getWriter().write(objectMapper.writeValueAsString(res));
             return false;

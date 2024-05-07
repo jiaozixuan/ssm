@@ -1,0 +1,1 @@
+INSERT INTO `role`(`role_id`, `role_name`, `role_tag`, `role_sort`, `status`, `del_flag`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES (1, '管理员', 'admin', 1, '0', '0', 'admin', '2022-01-28 15:57:57', 'admin', '2022-01-29 15:58:04');
