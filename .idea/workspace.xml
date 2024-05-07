@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ssm-backend" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6b44b3a6-f3de-4ec8-a177-0eec93384f66" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../Installation manual/apache-maven-3.9.0" />
+        <option name="useMavenConfig" value="true" />
+        <option name="workOffline" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2CWMurBlHuKqYdnerlZTjdt3eiB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/workspace/java/20220727learn/ssm/ssm-backend/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;工件&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.24835372&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0021e4353414409fd9f848cd02554f7f&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Installation manual\\IntelliJ IDEA 2022.1.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.jiaozx.exception" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\java\20220727learn\ssm\ssm-backend\src\main\resources" />
+      <recent name="D:\workspace\java\20220727learn\ssm\ssm-backend\web\swagger" />
+      <recent name="D:\workspace\java\20220727learn\ssm\ssm-backend\src\test\java" />
+      <recent name="D:\workspace\java\20200727learn\ssm\ssm-backend\src\main\resources\mapper" />
+      <recent name="D:\workspace\java\20200727learn\ssm\ssm-backend\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\java\20220727learn\ssm\ssm-backend\src\main\resources\swagger" />
+      <recent name="D:\workspace\java\20220727learn\ssm\ssm-backend\src\main\resources\swagger\" />
+      <recent name="D:\workspace\java\20220727learn\ssm\ssm-backend\web\WEB-INF" />
+      <recent name="D:\workspace\java\20220727learn\ssm\ssm-backend\web" />
+      <recent name="D:\workspace\java\20200727learn\ssm\ssm-backend\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jiaozx.configuration" />
+      <recent name="com.jiaozx.annotation" />
+      <recent name="com.jiaozx.utils" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install -Dmaven.test.skip=true" />
+      <command value="mvn -U idea:idea" />
+      <command value="mvn clean install -Dmaven.test.skip=true " />
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.61">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Test" />
+      <module name="ssm-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jiaozx.service.impl.UserServiceImpl" />
+      <module name="ssm-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiaozx.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 8.5.61" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.61" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080" />
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8 " />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="ssm-backend">
+          <settings>
+            <option name="CONTEXT_PATH" value="/ssm_backend" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="22c79ef7-7f06-485f-9e0b-b614cda79732" />
+        <option name="HTTP_PORT" value="8088" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="28181" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="ssm-backend" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="serve" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/ssm-ui/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.UserServiceImpl" />
+      <item itemvalue="npm.serve" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.61" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b44b3a6-f3de-4ec8-a177-0eec93384f66" name="Changes" comment="" />
+      <created>1658914114902</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658914114902</updated>
+      <workItem from="1658914116570" duration="2118000" />
+      <workItem from="1658921779834" duration="4543000" />
+      <workItem from="1658978619600" duration="1268000" />
+      <workItem from="1658998013158" duration="7475000" />
+      <workItem from="1659005651976" duration="4366000" />
+      <workItem from="1659164069334" duration="7110000" />
+      <workItem from="1659171396005" duration="4000" />
+      <workItem from="1659171422404" duration="7215000" />
+      <workItem from="1659342134650" duration="8310000" />
+      <workItem from="1659350484713" duration="7730000" />
+      <workItem from="1659358293549" duration="8233000" />
+      <workItem from="1659366573838" duration="2649000" />
+      <workItem from="1659430603920" duration="6700000" />
+      <workItem from="1659471613802" duration="2705000" />
+      <workItem from="1659607454615" duration="7404000" />
+      <workItem from="1659614929521" duration="766000" />
+      <workItem from="1659617862373" duration="608000" />
+      <workItem from="1659957515455" duration="610000" />
+      <workItem from="1659966031822" duration="38000" />
+      <workItem from="1660031024244" duration="1757000" />
+      <workItem from="1660032793762" duration="14000" />
+      <workItem from="1660032815892" duration="2000" />
+      <workItem from="1660032841843" duration="49000" />
+      <workItem from="1660032919732" duration="17000" />
+      <workItem from="1660033016070" duration="21000" />
+      <workItem from="1660033082407" duration="15000" />
+      <workItem from="1660033170238" duration="2000" />
+      <workItem from="1660033181842" duration="2000" />
+      <workItem from="1660033258830" duration="6616000" />
+      <workItem from="1660040284339" duration="7514000" />
+      <workItem from="1660047824777" duration="5981000" />
+      <workItem from="1660115911064" duration="7517000" />
+      <workItem from="1660123563304" duration="5169000" />
+      <workItem from="1660192113973" duration="5626000" />
+      <workItem from="1660199438534" duration="7912000" />
+      <workItem from="1660207435987" duration="3642000" />
+      <workItem from="1660211205621" duration="40000" />
+      <workItem from="1660211284261" duration="31000" />
+      <workItem from="1660211577684" duration="100000" />
+      <workItem from="1660212632367" duration="4917000" />
+      <workItem from="1660217574347" duration="7363000" />
+      <workItem from="1660225012822" duration="1268000" />
+      <workItem from="1660226294915" duration="1210000" />
+      <workItem from="1660290206752" duration="7676000" />
+      <workItem from="1660297980215" duration="7517000" />
+      <workItem from="1660330117551" duration="7315000" />
+      <workItem from="1660476991531" duration="757000" />
+      <workItem from="1660488569235" duration="443000" />
+      <workItem from="1660550818027" duration="144000" />
+      <workItem from="1660551026027" duration="1355000" />
+      <workItem from="1660645567427" duration="23000" />
+      <workItem from="1661268543213" duration="590000" />
+      <workItem from="1661269444462" duration="773000" />
+      <workItem from="1661325026986" duration="230000" />
+      <workItem from="1661325467547" duration="17000" />
+      <workItem from="1661325564177" duration="702000" />
+      <workItem from="1662533407857" duration="870000" />
+      <workItem from="1662537535997" duration="10000" />
+      <workItem from="1662552248828" duration="869000" />
+      <workItem from="1662704139469" duration="122000" />
+      <workItem from="1662704514055" duration="912000" />
+      <workItem from="1663831431049" duration="1971000" />
+      <workItem from="1663845941513" duration="68000" />
+      <workItem from="1663908434063" duration="1850000" />
+      <workItem from="1664353823697" duration="1201000" />
+      <workItem from="1666068613663" duration="5000" />
+      <workItem from="1666608535510" duration="176000" />
+      <workItem from="1666679279992" duration="3563000" />
+      <workItem from="1666775059803" duration="4269000" />
+      <workItem from="1666836084459" duration="2235000" />
+      <workItem from="1667039968568" duration="662000" />
+      <workItem from="1667988464826" duration="1419000" />
+      <workItem from="1688453872504" duration="1755000" />
+      <workItem from="1715049690438" duration="2785000" />
+      <workItem from="1715053258463" duration="485000" />
+      <workItem from="1715068126569" duration="256000" />
+      <workItem from="1715068397129" duration="4021000" />
+      <workItem from="1715072895276" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/ssm-ui/src/directive/index.js</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ssm-backend/src/main/java/com/jiaozx/exception/UsernameNotFoundException.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
