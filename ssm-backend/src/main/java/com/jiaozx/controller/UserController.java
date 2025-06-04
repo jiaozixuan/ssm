@@ -3,6 +3,7 @@ package com.jiaozx.controller;
 import com.jiaozx.annotation.CustomLog;
 import com.jiaozx.annotation.HasPermission;
 import com.jiaozx.annotation.HasRole;
+import com.jiaozx.annotation.Repeat;
 import com.jiaozx.entity.DTO.PageDTO;
 import com.jiaozx.entity.DTO.UserLoginDTO;
 import com.jiaozx.entity.PO.User;
@@ -45,6 +46,7 @@ public class UserController extends BaseController {
      * @return 查询结果
      */
     @GetMapping
+    @Repeat
     @CustomLog(type = "用户",title = "分页查询")
     public ResponseEntity<Page<User>> queryByPage(User user, PageDTO pageDTO) {
         return ResponseEntity.ok(this.userService.queryByPage(user, PageRequest.of(pageDTO.getPage(), pageDTO.getSize())));
